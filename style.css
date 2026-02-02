@@ -1,0 +1,302 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-size: cover;
+  font-family: 'Google Sans','Noto Sans Myanmar UI',arial,sans-serif;
+}
+
+/* =========================
+   CONTENEDOR
+   ========================= */
+
+.box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 25rem;
+  padding: 2.5rem;
+  box-sizing: border-box;
+  border: 1px solid #dadce0;
+  border-radius: 8px;
+}
+
+/* =========================
+   LOGO
+   ========================= */
+
+.google-logo {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 15px;
+}
+
+/* =========================
+   TEXTOS
+   ========================= */
+
+.box h2 {
+  margin: 0 0 -0.125rem;
+  color: #202124;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.box p {
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: .1px;
+  line-height: 1.5;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+/* =========================
+   INPUTS
+   ========================= */
+
+.box .inputBox {
+  position: relative;
+}
+
+.box .inputBox input {
+  width: 93%;
+  padding: 0.625rem 10px;
+  font-size: 1rem;
+  letter-spacing: 0.062rem;
+  margin-bottom: 1.875rem;
+  border: 1px solid #ccc;
+  background: transparent;
+  border-radius: 4px;
+}
+
+.box .inputBox label {
+  position: absolute;
+  top: 0;
+  left: 10px;
+  padding: 0.625rem 0;
+  font-size: 1rem;
+  color: grey;
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+.box .inputBox input:focus ~ label,
+.box .inputBox input:valid ~ label,
+.box .inputBox input:not([value=""]) ~ label {
+  top: -1.125rem;
+  left: 10px;
+  color: #1a73e8;
+  font-size: 0.75rem;
+  background-color: white;
+  padding: 0 5px;
+}
+
+.box .inputBox input:focus {
+  outline: none;
+  border: 2px solid #1a73e8;
+}
+
+/* =========================
+   BOTONES (GOOGLE STYLE)
+   ========================= */
+
+.box input[type="submit"],
+.box input[type="button"] {
+  border: none;
+  outline: none;
+  color: #fff;
+  background-color: #1a73e8;
+  padding: 12px 24px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  float: right;
+  margin-top: 32px;
+}
+
+.box input[type="submit"]:hover,
+.box input[type="button"]:hover {
+  background-color: #287ae6;
+  box-shadow: 0 1px 1px 0 rgba(66,133,244,0.45),
+              0 1px 3px 1px rgba(66,133,244,0.3);
+}
+
+/* =========================
+   FORGOT LINK
+   ========================= */
+
+.forgot {
+  margin-top: -20px;
+}
+
+.forgot button {
+  border-radius: 4px;
+  color: #1a73e8;
+  display: inline-block;
+  font-weight: 500;
+  letter-spacing: .25px;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: inherit;
+  padding: 0;
+  border: 0;
+}
+
+/* =========================
+   LOGIN POR PASOS
+   ========================= */
+
+.step {
+  display: none;
+}
+
+.step.active {
+  display: block;
+}
+
+#userEmail {
+  font-size: 14px;
+  color: #5f6368;
+  margin-bottom: 20px;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* =========================
+   MOBILE / ANDROID
+   ========================= */
+
+@media (max-width: 480px) {
+
+  body {
+    padding: 12px;
+  }
+
+  .box {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    width: 100%;
+    max-width: 420px;
+    margin: 40px auto;
+    padding: 24px;
+  }
+
+  .box h2 {
+    font-size: 1.4rem;
+  }
+
+  .box p {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+  }
+
+  .box .inputBox input {
+    width: 100%;
+    font-size: 16px; /* ANDROID FIX */
+    padding: 14px 10px;
+  }
+
+  .box .inputBox label {
+    font-size: 0.95rem;
+  }
+
+  /* BOTÓN GOOGLE ANDROID */
+  .box input[type="submit"],
+  .box input[type="button"] {
+    float: none;
+    width: 100%;
+    height: 48px;     /* ALTURA REAL GOOGLE */
+    margin-top: 32px;
+    padding: 0;
+    font-size: 1rem;
+  }
+
+  .forgot {
+    margin-top: -10px;
+  }
+}
+/* =========================
+   ANIMACIÓN TIPO GOOGLE
+   ========================= */
+
+.step {
+  display: none;
+  animation-duration: 0.35s;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.step.active {
+  display: block;
+}
+
+/* Entrada desde la derecha */
+.step.enter {
+  animation-name: slideInRight;
+}
+
+/* Salida hacia la izquierda */
+.step.exit {
+  animation-name: slideOutLeft;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOutLeft {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+}
+/* =========================
+   GOOGLE-STYLE LOADING BAR
+   ========================= */
+
+.loading-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0;
+  background-color: #1a73e8;
+  border-radius: 0 0 2px 2px;
+  opacity: 0;
+}
+
+.loading-bar.active {
+  opacity: 1;
+  animation: loadingBar 0.6s ease-out forwards;
+}
+
+@keyframes loadingBar {
+  0% {
+    width: 0%;
+  }
+  60% {
+    width: 70%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+
+
