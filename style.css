@@ -26,10 +26,9 @@ body {
    ========================= */
 
 .google-logo {
-  ddisplay: flex;
+  display: flex;
   justify-content: center;
-  padding: 24px 0;
-  margin-bottom: 24px;
+  padding: 24px;
 }
 
 /* =========================
@@ -298,6 +297,7 @@ body {
     width: 100%;
   }
 }
+
 
 
 
